@@ -49,8 +49,10 @@ export default function Inicio() {
         <p className="text-4xl text-white font-mono uppercase">
           mas com gosto de casa de vó!
         </p>
-        <div className="inline text-amber-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat iste rem nihil, blanditiis fuga incidunt maiores error atque ullam, dolor qui excepturi temporibus optio similique quos autem ut repellat nulla.</div>
-                    <button className="w-36 h-13 rounded-lg text-white cursor-pointer font-extralight mt-5 shadow-2xl bg-amber-600 px-2.5 py-2.5 flex items-center justify-center hover:bg-amber-500">ver o cardapio</button>
+        <div className="inline text-amber-600">A nossa Parmegiana é daquele jeitinho arretado: mistura a elegância da cozinha italiana com o sabor marcante da comida nordestina. Aqui você vai sentir o gostinho bom de casa e descobrir o que a nossa cozinha tem de mais especial: uma experiência pra lá de acolhedora!
+        <br/> <br/>
+        Para ver mais delícias, clique em "Ver Cardápio"!</div>
+                    <button className="w-36 h-13 rounded-lg text-white cursor-pointer font-extralight mt-5 shadow-2xl bg-amber-600 px-2.5 py-2.5 flex items-center justify-center hover:bg-amber-500">Ver Cardapio</button>
 
       </div>
 
