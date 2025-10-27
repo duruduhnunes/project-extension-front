@@ -93,7 +93,7 @@ export default function Inicio() {
                 Para ver as delícias, clique em "Ver Cardápio"!
               </div>
               <button className="w-36 h-13 rounded-lg text-white cursor-pointer font-extralight mt-5 shadow-2xl bg-amber-600 px-2.5 py-2.5 flex items-center justify-center hover:bg-amber-500">
-                Ver Cardapio
+                Ver Cardápio
               </button>
             </div>
           </div>
@@ -122,20 +122,7 @@ export default function Inicio() {
                 Nossa História
               </h3>
               <p className="text-lg leading-relaxed mb-6">
-                O Marminino nasceu da paixão pela boa comida e pelo aconchego
-                das mesas nordestinas. Aqui, tradição e sabor se encontram em
-                receitas preparadas com ingredientes frescos e muito amor.
-              </p>
-              <p className="text-lg leading-relaxed mb-6">
-                Cada refeição é um convite pra se sentir em casa — com gostinho
-                de comida feita por quem entende de afeto. Nossa missão é trazer
-                o melhor da culinária nordestina para sua mesa, com ingredientes
-                selecionados e receitas de família.
-              </p>
-              <p className="text-lg leading-relaxed">
-                Venha conhecer nossa história e se deliciar com os sabores
-                autênticos que fazem do Marminino mais que um restaurante, uma
-                experiência nordestina completa.
+                O restaurante Marminino traz o melhor da culinária nordestina direto para sua mesa! Localizado no coração da Várzea, Recife, nosso restaurante oferece pratos típicos feitos com ingredientes frescos e temperos autênticos daquele jeitinho caseiro que só o Nordeste tem  e opções de entrega rápida no hospital das clínicas e bairros próximos.
               </p>
             </div>
 
