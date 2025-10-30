@@ -55,7 +55,7 @@ export default function Navbar() {
           </a>
 
           <a
-            href="#"
+            href="#cardapio"
             onClick={() => handleNavClick("Cardápio")}
             className={`relative text-white cursor-pointer text-lg font-medium
               after:content-[''] after:absolute after:h-[2px] after:left-0 after:-bottom-1 after:bg-amber-600 after:transition-all after:duration-300
