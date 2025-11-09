@@ -179,13 +179,25 @@ export default function Inicio() {
 
               <div className="flex items-start gap-3.5 mt-6">
                 <div>MELHOR</div>
-                <div className="relative before:content-['•'] before:absolute before:-left-4 ml-3.5">
+                <div
+                  className={
+                    'relative before:content-["•"] before:absolute before:-left-4 ml-3.5'
+                  }
+                >
                   DELIVERY
                 </div>
-                <div className="relative before:content-['•'] before:absolute before:-left-4 ml-3.5">
+                <div
+                  className={
+                    'relative before:content-["•"] before:absolute before:-left-4 ml-3.5'
+                  }
+                >
                   DA
                 </div>
-                <div className="relative before:content-['•'] before:absolute before:-left-4 ml-3.5">
+                <div
+                  className={
+                    'relative before:content-["•"] before:absolute before:-left-4 ml-3.5'
+                  }
+                >
                   REGIAO
                 </div>
               </div>
