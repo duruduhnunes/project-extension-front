@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+const SECTION_MAP: { id: string; label: string }[] = [
+  { id: "inicio-section", label: "Início" },
+  { id: "sobre-section", label: "Sobre" },
+  { id: "cardapio", label: "Cardápio" },
+  { id: "novidades-section", label: "Novidades" },
+];
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState("Início");
@@ -10,8 +17,53 @@ export default function Navbar() {
     setIsActive(section);
   };
 
+  useEffect(() => {
+    const handleIntersections = (entries: IntersectionObserverEntry[]) => {
+      const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+      if (!visibleEntries.length) {
+        return;
+      }
+
+      const mostVisibleEntry = visibleEntries.reduce((prev, current) =>
+        current.intersectionRatio > prev.intersectionRatio ? current : prev
+      );
+
+      const matchedSection = SECTION_MAP.find(
+        (section) => section.id === mostVisibleEntry.target.id
+      );
+
+      if (matchedSection) {
+        setIsActive((current) =>
+          current === matchedSection.label ? current : matchedSection.label
+        );
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersections, {
+      root: null,
+      threshold: [0.25, 0.5, 0.75],
+    });
+
+    SECTION_MAP.forEach(({ id }) => {
+      const element = document.getElementById(id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    return () => {
+      SECTION_MAP.forEach(({ id }) => {
+        const element = document.getElementById(id);
+        if (element) {
+          observer.unobserve(element);
+        }
+      });
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md fixed w-full opacity-85">
+    <nav className="bg-gray-900 text-white px-6 py-4 shadow-md fixed w-full opacity-85 z-50">
       <div className="flex items-center justify-between max-w-6xl mx-auto">
         <div className="flex items-center">
           <Image

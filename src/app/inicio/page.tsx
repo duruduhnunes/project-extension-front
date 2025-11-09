@@ -2,10 +2,120 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { img } from "framer-motion/client";
 import { Dancing_Script } from "next/font/google";
 
 const dancing = Dancing_Script({ subsets: ["latin"] });
+
+const menuItems = [
+  {
+    title: "Frango à Milanesa",
+    image: "/frangomilanesa.jpg",
+    description:
+      "Filé de frango empanado na farinha crocante, tempero da casa e molho especial.",
+  },
+  {
+    title: "Carne de Sol",
+    image: "/carnedesol.jpg",
+    description:
+      "Clássico nordestino grelhado na manteiga de garrafa e servido com farofa de cuscuz.",
+  },
+  {
+    title: "Bife à Milanesa",
+    image: "/bifemilanesa.webp",
+    description:
+      "Bovino macio empanado e frito na hora, acompanha nosso vinagrete de coentro.",
+  },
+  {
+    title: "Panqueca de Carne de Sol",
+    image: "/panquecacarnesol.jpg",
+    description:
+      "Massa leve recheada com carne de sol desfiada e finalizada com molho cremoso.",
+  },
+  {
+    title: "Cupim Assado",
+    image: "/cupim.jpg",
+    description:
+      "Cupim lentamente assado com ervas, suculento e com crosta dourada irresistível.",
+  },
+  {
+    title: "Strogonoff de Frango",
+    image: "/strogonoff.jpg",
+    description:
+      "Clássico cremoso com frango refogado, champignon e toque de páprica defumada.",
+  },
+  {
+    title: "Filé de Frango Grelhado",
+    image: "/filefrango.jpg",
+    description:
+      "Filé de frango grelhado no ponto com ervas frescas e fio de manteiga da terra.",
+  },
+  {
+    title: "Parmegiana de Frango",
+    image: "/parmegiana.jpg",
+    description:
+      "Empanado crocante, molho de tomate artesanal e gratinado com queijo coalho.",
+  },
+  {
+    title: "Feijoada Completa",
+    image: "/feijoada.jpg",
+    description:
+      "Feijão preto, cortes nobres e acompanhamentos clássicos para um almoço reforçado.",
+  },
+  {
+    title: "Parmegiana de Carne",
+    image: "/parmegianacarne.avif",
+    description:
+      "Bife bovino empanado com cobertura de queijo derretido e molho rústico.",
+  },
+  {
+    title: "Camarão ao Coco",
+    image: "/camaraococo.avif",
+    description:
+      "Camarões salteados no leite de coco, dendê e temperos frescos do litoral.",
+  },
+  {
+    title: "Picadinho ao Molho de Queijo",
+    image: "/picadinhoqueijo.webp",
+    description:
+      "Cubos de carne cozidos lentamente e finalizados com creme de queijo maturado.",
+  },
+  {
+    title: "Frango Delícia",
+    image: "/frangodelicia.jpg",
+    description:
+      "Tiras de frango gratinadas com creme de milho e crosta de queijo dourado.",
+  },
+  {
+    title: "Frango ao Molho de Brócolis",
+    image: "/frangobrocolis.jpg",
+    description:
+      "Filés salteados com brócolis, alho e molho cremoso com leve toque de limão.",
+  },
+  {
+    title: "Almôndega de Carne",
+    image: "/almondegadecarne.jpg",
+    description:
+      "Almôndegas artesanais cozidas em molho de tomate rústico com manjericão.",
+  },
+  {
+    title: "Peixe Empanado",
+    image: "/peixeempanado.jpg",
+    description:
+      "Postas de peixe empanadas, crocantes por fora e macias por dentro, com limão fresco.",
+  },
+  {
+    title: "Sobrecoxa ao Forno",
+    image: "/sobrecoxa.webp",
+    description:
+      "Sobrecoxas marinadas em especiarias, assadas lentamente até ficarem douradas.",
+  },
+  {
+    title: "Lasanha de Frango",
+    image: "/lasanha.jpg",
+    description:
+      "Camadas de massa fresca, frango desfiado e molho bechamel gratinado.",
+  },
+];
 
 export default function Inicio() {
   return (
@@ -55,11 +165,17 @@ export default function Inicio() {
               className="flex flex-col items-center justify-center"
               id="inicio-section"
             >
-              <img
-                src="/Rectangle.png"
-                alt="Prato"
-                className="max-w-full h-auto animate-float"
-              />
+              <div className="w-full max-w-[520px]">
+                <Image
+                  src="/Rectangle.png"
+                  alt="Prato"
+                  width={520}
+                  height={520}
+                  quality={90}
+                  priority
+                  className="h-auto w-full animate-float object-contain"
+                />
+              </div>
 
               <div className="flex items-start gap-3.5 mt-6">
                 <div>MELHOR</div>
@@ -95,11 +211,12 @@ export default function Inicio() {
                 Para ver as delícias, clique em "Ver Cardápio"!
               </div>
               <button
-              onClick={() => {
-              const section = document.getElementById("cardapio");
-              section?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="w-36 h-13 rounded-lg text-white cursor-pointer font-extralight mt-5 shadow-2xl bg-amber-600 px-2.5 py-2.5 flex items-center justify-center hover:bg-amber-500">
+                onClick={() => {
+                  const section = document.getElementById("cardapio");
+                  section?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="w-36 h-13 rounded-lg text-white cursor-pointer font-extralight mt-5 shadow-2xl bg-amber-600 px-2.5 py-2.5 flex items-center justify-center hover:bg-amber-500"
+              >
                 Ver Cardápio
               </button>
             </div>
@@ -129,15 +246,23 @@ export default function Inicio() {
                 Nossa História
               </h3>
               <p className="text-lg leading-relaxed mb-6">
-                O restaurante Marminino traz o melhor da culinária nordestina direto para sua mesa! Localizado no coração da Várzea, Recife, nosso restaurante oferece pratos típicos feitos com ingredientes frescos e temperos autênticos daquele jeitinho caseiro que só o Nordeste tem  e opções de entrega rápida no hospital das clínicas e bairros próximos.
+                O restaurante Marminino traz o melhor da culinária nordestina
+                direto para sua mesa! Localizado no coração da Várzea, Recife,
+                nosso restaurante oferece pratos típicos feitos com ingredientes
+                frescos e temperos autênticos daquele jeitinho caseiro que só o
+                Nordeste tem e opções de entrega rápida no hospital das clínicas
+                e bairros próximos.
               </p>
             </div>
 
             <div className="flex justify-center">
-              <img
+              <Image
                 src="/Rectangle.png"
                 alt="Prato do Marminino"
-                className="max-w-md h-auto rounded-lg shadow-2xl"
+                width={520}
+                height={520}
+                quality={90}
+                className="h-auto w-full max-w-md rounded-lg object-contain shadow-2xl"
               />
             </div>
           </div>
@@ -179,98 +304,52 @@ export default function Inicio() {
         </div>
       </motion.div>
 
-{/* Seção Cardápio */}
-<motion.div
-  initial={{ opacity: 0, y: 100 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8, ease: "easeOut" }}
-  viewport={{ once: true }}
-  className=" mt-20"
-  id="cardapio"
->
-<div className="text-center mb-12">
-  <h2 className="text-4xl font-bold text-amber-600 mb-4">
-   Cardapio
-  </h2>
- <div className="w-24 h-1 bg-amber-600 mx-auto">
- </div>
-</div>
-<div className="grid grid-cols-3">
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] mt-20 ml-10 flex flex-row">
-  <Image src="/frangomilanesa.jpg" alt="Frango a Milanesa" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-  <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Frango a Milanesa</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-    <Image src="/carnedesol.jpg" alt="carne de sol" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-    <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Carne de Sol</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-    <Image src="/bifemilanesa.webp" alt="Bife a Milanesa" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-    <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Bife a Milanesa</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-   <Image src="/panquecacarnesol.jpg" alt="Panqueca de carne de sol" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-   <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Panqueca de carne de sol</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-   <Image src="/cupim.jpg" alt="Cupim" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mb-2 ml-3 " />
-   <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Cupim</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-   <Image src="/strogonoff.jpg" alt="strogonoff" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-   <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Strogonoff de Frango</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-   <Image src="/filefrango.jpg" alt="file de frango" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-   <h1 className="text-xl leading-relaxed text-gray-300 ml-3">File de Frango</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-   <Image src="/parmegiana.jpg" alt="parmegiana" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-   <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Parmegiana de Frango</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-   <Image src="/feijoada.jpg" alt="feijoada" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-   <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Feijoada</h1>
-  </div>
-  <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-  <Image src="/parmegianacarne.avif" alt="parmegiana de carne" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-  <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Parmegiana de Carne</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-      <Image src="/camaraococo.avif" alt="camarão ao côco" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Camarão ao côco</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-      <Image src="/picadinhoqueijo.webp" alt="picadinho ao molho de queijo" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Picadinho ao molho de queijo</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10 flex flex-row">
-      <Image src="/frangodelicia.jpg" alt="Frango Delicia" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Frango Delicia</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10  flex flex-row">
-      <Image src="/frangobrocolis.jpg" alt="frango ao molho de brocolis" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Frango ao molho de brocolis</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10  flex flex-row">
-      <Image src="/almondegadecarne.jpg" alt="almondega de carne" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Almondega de carne</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10  flex flex-row">
-      <Image src="/peixeempanado.jpg" alt="peixe empanado" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Peixe empanado</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10  flex flex-row">
-      <Image src="/sobrecoxa.webp" alt="sobrecoxa ao forno" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Sobrecoxa ao forno</h1>
-  </div>
-    <div className="bg-linear-to-r from-[#E68A1F] to-[#2D1A0E] h-[150px] w-[350px] rounded-lg mt-20 ml-10  flex flex-row">
-      <Image src="/lasanha.jpg" alt="lasanha de frango" width={100} height={100} className="rounded-xl w-[140px] h-[130px] mt-2 ml-3 " />
-      <h1 className="text-xl leading-relaxed text-gray-300 ml-3">Lasanha de frango</h1>
-  </div>
-  </div>
-  
-</motion.div>
+      {/* Seção Cardápio */}
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className=" mt-20"
+        id="cardapio"
+      >
+        <div className="text-center mb-12">
+          <h2 className="text-5xl font-bold text-amber-600 mb-4">Cardápio</h2>
+          <div className="w-24 h-1 bg-amber-600 mx-auto"></div>
+        </div>
+
+        <div className="max-w-6xl mx-auto">
+          <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+            {menuItems.map((item) => (
+              <div
+                key={item.title}
+                className="group relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2D1A0E] via-[#3a2514] to-[#E68A1F]/80 p-6 shadow-lg transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl"
+              >
+                <div className="flex items-start gap-5">
+                  <div className="relative h-24 w-24 flex-shrink-0 overflow-hidden rounded-xl">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="96px"
+                      quality={90}
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <h3 className="text-xl font-semibold text-white">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-gray-200 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.div>
 
       {/* Seção Novidades */}
       <motion.div
@@ -292,11 +371,14 @@ export default function Inicio() {
             {/* Imagem */}
             <div className="relative group">
               <div className="absolute -inset-4 bg-gradient-to-r from-amber-600 to-orange-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative">
-                <img
+              <div className="relative h-96 w-full">
+                <Image
                   src="/almondega.jpg"
                   alt="Almôndega do Marminino"
-                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-300"
+                  fill
+                  quality={90}
+                  className="rounded-2xl object-cover shadow-2xl transition duration-300 group-hover:scale-105"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
                 <div className="absolute bottom-4 left-4 right-4">
@@ -403,13 +485,16 @@ export default function Inicio() {
             {/* Imagem - Lado Direito */}
             <div className="relative group order-1 lg:order-2">
               <div className="absolute -inset-4 bg-gradient-to-r from-amber-600 to-orange-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative">
-                <img
+              <div className="relative h-96 w-full">
+                <Image
                   src="/frutos.jpg"
                   alt="Frutos do Mar do Marminino"
-                  className="w-full h-96 object-cover rounded-2xl shadow-2xl transform group-hover:scale-105 transition duration-300"
+                  fill
+                  quality={90}
+                  className="rounded-2xl object-cover shadow-2xl transition duration-300 group-hover:scale-105"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 right-4">
                   <span className="inline-block bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                     NOVIDADE
